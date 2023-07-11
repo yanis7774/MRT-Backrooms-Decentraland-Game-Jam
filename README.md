@@ -1,6 +1,8 @@
 # MRT-Backrooms Decentraland GameJam
 Meta Residence Tower submission for GameJam 2023
 
+[Play](https://play.decentraland.org/?realm=8metagames.dcl.et)
+
 
 The Meta Residence Tower Backrooms project utilizes several new SDK7 technologies and newly developed systems. 
 
