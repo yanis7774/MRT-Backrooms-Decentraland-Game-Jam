@@ -154,23 +154,36 @@ export function createWormMonster(position: Vector3) {
 
 const enrageWorm = () => {
     const enemyList = engine.getEntitiesWith(Worm);
+    let worms_present = false
     for (const [entity] of enemyList) {
         let worm = Worm.getMutable(entity);
         let enemy = Enemy.getMutable(entity);
         enemy.movementSpeed = worm.enrageSpeed;
         worm.enrage = true;
+        worms_present = true
+    }
+    if(worms_present)
+    {
         utils.timers.setTimeout(calmWorm,wormEnrageDuration*1000)
     }
+    
+
 }
 
 const calmWorm = () => {
     const enemyList = engine.getEntitiesWith(Worm);
+    let worms_present = false
+
     for (const [entity] of enemyList) {
         let worm = Worm.getMutable(entity);
         let enemy = Enemy.getMutable(entity);
         enemy.movementSpeed = worm.basicSpeed;
         worm.enrage = false;
-        utils.timers.setTimeout(calmWorm,wormEnrageDuration*1000)
+        worms_present = true
+    }
+    if(worms_present)
+    {
+        utils.timers.setTimeout(enrageWorm,wormEnrageDuration*1000)
     }
 }
 

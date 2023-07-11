@@ -76,7 +76,7 @@ import {
     removeWorm
 } from "../../enemies/enemy";
 import { createPickUp, placeInkSpot } from "../../objects/obstacles";
-import {callPrompt, death, setCurrentHint, setupUi, ui_type} from "../../ui";
+import {callPrompt, death, saveProgress, setCurrentHint, setupUi, ui_type} from "../../ui";
 import {
     audiotape,
     casseteTapes,
@@ -1555,12 +1555,14 @@ export const createDungeonController = (position: Vector3) => {
                 }
             else
             {
+                saveProgress();
                 resetDungeon(User[0].currentFloor + 1);
                 setCurrentHint(elevatorText)
             }
         }
 
         else {
+            saveProgress();
             setupUi(ui_type.promt)
             callPrompt(elevatorText, 5, "OK", () => {setupUi(ui_type.game)});
             setCurrentHint(elevatorText)

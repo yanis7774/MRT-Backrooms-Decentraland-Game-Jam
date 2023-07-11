@@ -985,6 +985,14 @@ function quitGame() {
 }
 
 export function death() {
+    saveProgress();
+    removeAllEntities();
+    setupUi(ui_type.leaderboard)
+    User[0].resetPlayer();
+}
+
+
+export function saveProgress() {
     let timeLeader = -1
     let roomLeader =  User[0].currentFloor-1
     if(User[0].currentFloor == 10)
@@ -999,9 +1007,4 @@ export function death() {
     })
     //console.log(User[0].currentFloor-1)
     //console.log(User[0].wholeTimer)
-    removeAllEntities();
-    setupUi(ui_type.leaderboard)
-    User[0].resetPlayer();
 }
-
-

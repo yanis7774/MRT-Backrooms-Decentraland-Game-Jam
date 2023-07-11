@@ -39,7 +39,8 @@ export class MainRoom extends Room<MainRoomState> {
             const userDb = await getUserFromDB(user.address);
             console.log(message)
             let editFlag = false;
-            if (message.timeLeader != undefined && (userDb?.timeLeader == -1 || message.timeLeader < userDb.timeLeader)) {
+            if (message.timeLeader != undefined && (userDb?.timeLeader == -1 || (message.timeLeader < userDb.timeLeader && message.timeLeader != -1))) {
+                console.log(message.timeLeader)
                 userDb.timeLeader = message.timeLeader;
                 editFlag = true;
             }
