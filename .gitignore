@@ -1,0 +1,6 @@
+arch/
+node_modules
+/.vscode/
+lib
+package-lock.json
+bin/
