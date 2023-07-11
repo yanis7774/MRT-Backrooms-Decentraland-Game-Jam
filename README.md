@@ -54,7 +54,10 @@ We have finished and are ready to provide open-source access to the following sy
 - OpenAI GPT4 - Assistance in design decisions and code optimization 
 - MusicGen - Music Generation
 
+
 ## Team 
 
 The project is developed by a team of four individuals from the MRT Team.
 
+
+Apache License Version 2.0
