@@ -82,6 +82,7 @@ export const enemyAttackSound = 'sounds/objects/monsters/monster_bite.mp3';
 export const inkAttackSound = 'sounds/objects/monsters/inkAttak.wav';
 export const wormAttackSound = 'sounds/objects/monsters/wormAttack.wav';
 export const inkWalkingSound = 'sounds/objects/monsters/dollDress.mp3';
+export const inkSpawnSound = 'sounds/objects/monsters/inkRespawn.wav';
 export const mimicWalkingSound = 'sounds/objects/monsters/mimicWalking.mp3';
 export const wormWalkingSound = 'sounds/objects/monsters/wormWalking.mp3';
 

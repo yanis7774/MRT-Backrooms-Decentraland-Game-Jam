@@ -102,6 +102,7 @@ export function inkSystem(dt: number) {
                     const inkDistance = Vector3.distanceSquared(inkTransform.position, {x:playerPos.x,y:0.7,z:playerPos.z});
                     if (gridContainer[0] && (inkMonster.teleportState != inkState.HUNTING || inkDistance < inkMonster.huntDistance)) {
                         noInks = false;
+                        AudioSource.getMutable(ink).playing = true
                         monsterPosition = Transform.get(entity).position
                         let pathFind = gridContainer[0].getPath(inkTransform.position,playerPos);
                         let tmpPath = 99999;

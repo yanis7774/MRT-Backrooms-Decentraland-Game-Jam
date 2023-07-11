@@ -1,8 +1,8 @@
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
 import { Box, Trap, InkSpot, PickUp, CandleBlock } from "./obstacleComponents";
-import { ColliderLayer, GltfContainer, InputAction, MeshCollider, Transform, engine, pointerEventsSystem } from "@dcl/sdk/ecs";
+import { AudioSource, ColliderLayer, GltfContainer, InputAction, MeshCollider, Transform, engine, pointerEventsSystem } from "@dcl/sdk/ecs";
 import { createEntity, createPlaneShapeEntity } from "../modules/entityManager";
-import { boxModel, candleActiveModel, inkSprite, trapModel } from "../resources/resources";
+import { boxModel, candleActiveModel, inkSpawnSound, inkSprite, trapModel } from "../resources/resources";
 import { BASIC_TRAP_RANGE, inventoryItems } from "../globals";
 import { invPickUpModel } from "./inventory";
 import * as utils from '@dcl-sdk/utils'
@@ -18,6 +18,13 @@ export function createTrap(position: Vector3) {
 
 export function placeInkSpot(position: Vector3) {
     const inkEntity = createPlaneShapeEntity(position,inkSprite,Vector3.create(3,3,3),Quaternion.fromEulerDegrees(90,0,0));
+    AudioSource.createOrReplace(inkEntity,
+        {
+            audioClipUrl: inkSpawnSound,
+            loop:false,
+            volume: 30,
+            playing: false,
+        })
     InkSpot.create(inkEntity);
     return inkEntity;
 }
